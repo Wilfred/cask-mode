@@ -1,2 +1,3 @@
 # cask-mode
-Major mode for editing Cask files
+
+A major mode for editing Cask files.
