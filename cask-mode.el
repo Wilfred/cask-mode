@@ -25,7 +25,7 @@
 ;;; Code:
 
 (defvar cask-mode-font-lock-keywords
-  `((,(regexp-opt '("source" "package-file" "depends-on") 'symbol)
+  `((,(regexp-opt '("source" "package-file" "depends-on" "development") 'symbol)
      . font-lock-keyword-face))
   )
 
