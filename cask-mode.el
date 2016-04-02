@@ -32,7 +32,10 @@
     table))
 
 (defvar cask-mode-font-lock-keywords
-  `((,(regexp-opt '("source" "package-file" "depends-on" "development") 'symbol)
+  `((,(regexp-opt
+       ;; Full list taken from http://cask.readthedocs.org/en/latest/guide/dsl.html
+       '("package" "package-file" "files" "depends-on" "development" "source")
+       'symbol)
      . font-lock-keyword-face))
   )
 

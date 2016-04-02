@@ -19,3 +19,10 @@
            'cask-mode
            '("; foo" "bar")
            '(font-lock-comment-face nil))))
+
+(ert-deftest cask-mode-highlight-keywords ()
+  (should (assess-face-at=
+           "(package \"ecukes\" \"0.2.1\" \"Cucumber for Emacs.\")"
+           'cask-mode
+           "package"
+           'font-lock-keyword-face)))
