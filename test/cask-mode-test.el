@@ -6,6 +6,8 @@
   (with-temp-buffer
     (insert "(source melpa)")
     (cask-mode)
+
+    (transient-mark-mode)
     (mark-whole-buffer)
     (comment-dwim nil)
     (should (equal (buffer-string) ";; (source melpa)"))))
