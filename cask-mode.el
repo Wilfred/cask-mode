@@ -36,6 +36,7 @@
   (setq-local comment-start ";; ")
   (setq-local comment-end ""))
 
+;;;###autoload
 (add-to-list 'auto-mode-alist
              '("Cask" . cask-mode))
 
