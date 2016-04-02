@@ -26,3 +26,19 @@
            'cask-mode
            "package"
            'font-lock-keyword-face)))
+
+(ert-deftest cask-mode-highlight-sources ()
+  (should (assess-face-at=
+           "(source melpa)"
+           'cask-mode
+           "melpa"
+           'cask-mode-source-face)))
+
+(ert-deftest cask-mode-dont-highlight-source-substring ()
+  "Ensure that \"nongnu\" is not highlighted, even though \"gnu\"
+is a known source."
+  (should (assess-face-at=
+           "(source nongnu)"
+           'cask-mode
+           "gnu"
+           '(nil))))

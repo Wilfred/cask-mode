@@ -31,13 +31,25 @@
     (modify-syntax-entry ?\n ">" table)
     table))
 
+(defface cask-mode-source-face
+  '((t :inherit font-lock-variable-name-face))
+  "Face for known cask sources."
+  :group 'cask-mode)
+
+;; TODO: is this necessary?
+(defvar cask-mode-source-face 'cask-mode-source-face
+  "Face name to use for highlighting sources.")
+
 (defvar cask-mode-font-lock-keywords
   `((,(regexp-opt
        ;; Full list taken from http://cask.readthedocs.org/en/latest/guide/dsl.html
        '("package" "package-file" "files" "depends-on" "development" "source")
-       'symbol)
-     . font-lock-keyword-face))
-  )
+       'symbols)
+     . font-lock-keyword-face)
+    (,(regexp-opt
+       '("gnu" "melpa-stable" "melpa" "marmalade" "SC" "org")
+       'symbols)
+     . cask-mode-source-face)))
 
 ;;;###autoload
 (define-derived-mode cask-mode prog-mode "Cask"
