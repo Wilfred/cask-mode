@@ -32,7 +32,9 @@
 
 ;;;###autoload
 (define-derived-mode cask-mode prog-mode "Cask"
-  (setq-local font-lock-defaults '(cask-mode-font-lock-keywords)))
+  (setq-local font-lock-defaults '(cask-mode-font-lock-keywords))
+  (setq-local comment-start ";; ")
+  (setq-local comment-end ""))
 
 (add-to-list 'auto-mode-alist
              '("Cask" . cask-mode))
