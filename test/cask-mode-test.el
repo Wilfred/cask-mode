@@ -1,4 +1,5 @@
 (require 'ert)
+(require 'assess)
 (require 'cask-mode)
 
 (ert-deftest cask-mode-toggle-comment ()
@@ -11,3 +12,10 @@
     (mark-whole-buffer)
     (comment-dwim nil)
     (should (equal (buffer-string) ";; (source melpa)"))))
+
+(ert-deftest cask-mode-highlight-comment ()
+  (should (assess-face-at=
+           "; foo\nbar"
+           'cask-mode
+           '("; foo" "bar")
+           '(font-lock-comment-face nil))))
