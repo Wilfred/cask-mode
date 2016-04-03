@@ -42,3 +42,10 @@ is a known source."
            'cask-mode
            "gnu"
            '(nil))))
+
+(ert-deftest cask-mode-highlight-known-symbols ()
+  (should (assess-face-at=
+           "(depends-on dash :git \"git://example.com\")"
+           'cask-mode
+           ":git"
+           'cask-mode-symbol-face)))

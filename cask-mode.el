@@ -29,6 +29,7 @@
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?\; "<" table)
     (modify-syntax-entry ?\n ">" table)
+    (modify-syntax-entry ?: "_" table)
     table))
 
 (defface cask-mode-source-face
@@ -36,8 +37,18 @@
   "Face for known cask sources."
   :group 'cask-mode)
 
+;; Emacs naming is inconsistent. Some major modes (e.g. elisp) use the term
+;; 'keyword' to refer to 'def', 'const', whereas other major modes
+;; (e.g. clojure) use the term 'keyword' for ':foo', ':bar'.
+(defface cask-mode-symbol-face
+  '((t :inherit font-lock-constant-face))
+  "Face for highlighting symbols (e.g. :git) in Cask files."
+  :group 'cask-mode)
+
 ;; TODO: is this necessary?
 (defvar cask-mode-source-face 'cask-mode-source-face
+  "Face name to use for highlighting sources.")
+(defvar cask-mode-symbol-face 'cask-mode-symbol-face
   "Face name to use for highlighting sources.")
 
 (defvar cask-mode-font-lock-keywords
@@ -49,7 +60,11 @@
     (,(regexp-opt
        '("gnu" "melpa-stable" "melpa" "marmalade" "SC" "org")
        'symbols)
-     . cask-mode-source-face)))
+     . cask-mode-source-face)
+    (,(rx symbol-start
+          (or ":git" ":bzr" ":hg" ":darcs" ":svn" ":cvs")
+          symbol-end)
+     . cask-mode-symbol-face)))
 
 ;;;###autoload
 (define-derived-mode cask-mode prog-mode "Cask"
