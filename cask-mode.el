@@ -73,6 +73,8 @@ See http://cask.readthedocs.org/en/latest/guide/dsl.html
 for more details on the DSL accepted by Cask."
   :syntax-table cask-mode-syntax-table
   (setq-local font-lock-defaults '(cask-mode-font-lock-keywords))
+  ;; FIXME: toggling comments only applies to the current line,
+  ;; breaking multiline sexps.
   (setq-local comment-start ";; ")
   (setq-local comment-end "")
   (setq-local indent-line-function #'lisp-indent-line))
