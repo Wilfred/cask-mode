@@ -68,6 +68,9 @@
 
 ;;;###autoload
 (define-derived-mode cask-mode prog-mode "Cask"
+  "Major mode for editing Cask files.
+See http://cask.readthedocs.org/en/latest/guide/dsl.html
+for more details on the DSL accepted by Cask."
   :syntax-table cask-mode-syntax-table
   (setq-local font-lock-defaults '(cask-mode-font-lock-keywords))
   (setq-local comment-start ";; ")
