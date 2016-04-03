@@ -49,3 +49,15 @@ is a known source."
            'cask-mode
            ":git"
            'cask-mode-symbol-face)))
+
+;; TODO: `assess-with-preserved-buffer-list' is used before definition
+;; in assess.el, so we should file a bug.
+;; (should (assess-indentation= 'fundamental-mode "foo" "bar"))
+;; casues an error.
+
+(ert-deftest cask-mode-indent-inside-development ()
+  "Ensure we correctly indent inside (development ...) blocks."
+  (should (assess-indentation=
+           'cask-mode
+           "(development\n(depends-on \"foo\"))"
+           "(development\n (depends-on \"foo\"))")))

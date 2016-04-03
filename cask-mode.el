@@ -20,8 +20,8 @@
 
 ;;; Commentary:
 
-;; A basic major mode for editing Cask files. Provides syntax
-;; highlighting.
+;; cask-mode is a major mode for editing Cask files. It provides syntax
+;; highlighting, comment toggling and indentation.
 
 ;;; Code:
 
@@ -74,7 +74,8 @@ for more details on the DSL accepted by Cask."
   :syntax-table cask-mode-syntax-table
   (setq-local font-lock-defaults '(cask-mode-font-lock-keywords))
   (setq-local comment-start ";; ")
-  (setq-local comment-end ""))
+  (setq-local comment-end "")
+  (setq-local indent-line-function #'lisp-indent-line))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
