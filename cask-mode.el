@@ -63,7 +63,8 @@
        'symbols)
      . cask-mode-source-face)
     (,(rx symbol-start
-          (or ":git" ":bzr" ":hg" ":darcs" ":svn" ":cvs")
+          (or ":github" ":gitlab" "bitbucket" "wiki"
+              ":git" ":bzr" ":hg" ":darcs" ":fossil" ":svn" ":cvs")
           symbol-end)
      . cask-mode-symbol-face)))
 
