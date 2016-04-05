@@ -14,3 +14,6 @@ manually.
 
 Just open a Cask file! Alternatively, `M-x cask-mode` will start the
 mode explicitly.
+
+![screenshot](screenshot.png)
+
