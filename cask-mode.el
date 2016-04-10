@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016
 
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
-;; Version: 0.1
+;; Version: 0.2
 ;; Package-Requires: ((emacs "24.3"))
 
 ;; This program is free software; you can redistribute it and/or modify
