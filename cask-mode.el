@@ -83,7 +83,7 @@ for more details on the DSL accepted by Cask."
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
-             '("\\`Cask\\'" . cask-mode))
+             '("/Cask\\'" . cask-mode))
 
 (provide 'cask-mode)
 ;;; cask-mode.el ends here
