@@ -28,6 +28,7 @@
            'font-lock-keyword-face)))
 
 (ert-deftest cask-mode-highlight-sources ()
+  "Ensure we highlight known values for source."
   (should (assess-face-at=
            "(source melpa)"
            'cask-mode
