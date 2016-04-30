@@ -8,8 +8,7 @@ highlighting, comment toggling and indentation.
 
 ## Installation
 
-Install from MELPA
-([awaiting approval](https://github.com/melpa/melpa/pull/3737)) or add
+Install from MELPA or add
 to your load-path manually.
 
 ## Usage
